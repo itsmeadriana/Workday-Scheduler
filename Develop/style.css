@@ -48,20 +48,20 @@ textarea{
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #6198ff;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
-  color: white;
+  background-color: #ffffff;
+  color: #6198ff;
 }
 
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #d5066d;
   color: white;
 }
 
