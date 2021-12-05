@@ -1,54 +1,64 @@
-var schedule={}
+$(document).ready(function() {
+    $(".btn").on('click', function() {
+        let input=$(this).siblings('.description').val();
+        let time=$(this).siblings('.description').attr('id');
 
-var pencilIn = function() {
-    $('.saveBtn').on('click', function() {
+        if(!input) {
+            alert('You need to add a task description.');
+            return;
+        } else {
+            localStorage.setItem(time, input);
+            alert('Added to schedule!');
+        }
+    }
+);
 
-    })
-}
-
-var colorTimeBlock = function() {
+var colorTracker = function() {
     var currentTime = moment().hours();
+    console.log(currentTime);
 
     $('.time-block').each(function() {
-        var hour = parseInt(
+        var hourBlock = parseInt(
             $(this)
-                .attribute('id')
-                .split('-')[1]
+                .attr('id')
         );
-        if (hour < currentTime) {
+        console.log(hourBlock);
+
+        if (hourBlock < currentTime) {
             $(this).addClass('past')
-        } else if (hour === currentTime) {
-            $(this).addClass('present');
+        } else if (hourBlock === currentTime) {
             $(this).removeClass('past');
+            $(this).addClass('present');
         } else {
             $(this).removeClass('past');
             $(this).removeClass('present');
-            $(this).addClass('present');
+            $(this).addClass('future');
         }
     });
 }
 
-var saveSchedule = function(time, task) {
-    var taskData = {
-        date: moment().format('l'),
-        time: time,
-        taskDes: task
-    };
-    schedule.push(taskData);
-    localStorage.setItem("penciledIn", JSON.stringify(schedule));
-}
+colorTracker();
 
   // get stored data from local storage
-  $('#9am.description').val(localStorage.getItem('9am'));
-  $('#10am.description').val(localStorage.getItem('10am'));
-  $('#11am.description').val(localStorage.getItem('11am'));
-  $('#12pm.description').val(localStorage.getItem('12pm'));
-  $('#1pm.description').val(localStorage.getItem('1pm'));
-  $('#2pm.description').val(localStorage.getItem('2pm'));
-  $('#3pm.description').val(localStorage.getItem('3pm'));
-  $('#4pm.description').val(localStorage.getItem('4pm'));
-  $('#5pm.description').val(localStorage.getItem('5pm'));
+// $('.description').each(function() {})
+
+var getSchedule = function() {
+
+    $('#9.description').val(localStorage.getItem('9'));
+    $('#10.description').val(localStorage.getItem('10'));
+    $('#11.description').val(localStorage.getItem('11'));
+    $('#12.description').val(localStorage.getItem('12'));
+    $('#13.description').val(localStorage.getItem('13'));
+    $('#14.description').val(localStorage.getItem('14'));
+    $('#15.description').val(localStorage.getItem('15'));
+    $('#16.description').val(localStorage.getItem('16'));
+    $('#17.description').val(localStorage.getItem('17'));
+}
+
+getSchedule();
+
+
 
   // display current day on page
   $('#currentDay').text(moment().format('dddd, MMMM Do'));
-// });
+});
