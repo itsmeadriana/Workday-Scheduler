@@ -20,6 +20,7 @@ var colorTracker = function() {
     $('.time-block').each(function() {
         var hourBlock = parseInt(
             $(this)
+                .children('textarea')
                 .attr('id')
         );
         console.log(hourBlock);
@@ -37,10 +38,10 @@ var colorTracker = function() {
     });
 }
 
-colorTracker();
+ // display current day on page
+ $('#currentDay').text(moment().format('dddd, MMMM Do'));
 
-  // get stored data from local storage
-// $('.description').each(function() {})
+colorTracker();
 
 var getSchedule = function() {
 
@@ -56,9 +57,4 @@ var getSchedule = function() {
 }
 
 getSchedule();
-
-
-
-  // display current day on page
-  $('#currentDay').text(moment().format('dddd, MMMM Do'));
 });
