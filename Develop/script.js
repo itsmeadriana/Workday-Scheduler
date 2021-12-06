@@ -38,10 +38,7 @@ var colorTracker = function() {
     });
 }
 
- // display current day on page
  $('#currentDay').text(moment().format('dddd, MMMM Do'));
-
-colorTracker();
 
 var getSchedule = function() {
 
@@ -56,5 +53,6 @@ var getSchedule = function() {
     $('#17.description').val(localStorage.getItem('17'));
 }
 
+colorTracker();
 getSchedule();
 });
