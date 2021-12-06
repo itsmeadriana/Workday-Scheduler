@@ -20,6 +20,7 @@ This application will allow you to keep track of your day with an in-browser sch
 
 ## Preview
 
+https://github.com/itsmeadriana/Workday-Scheduler/blob/4e07d10776766d358ae895ac2c299c96cfb98b14/Develop/workdayScheduler-previewClip.mov
 
 ## Website
 
